@@ -1,7 +1,6 @@
 from typing import Set, Iterable, Any
 from tcod.context import Context
 from tcod.console import Console
-from actions import *
 from entity import *
 from input_handlers import *
 from game_map import * 
@@ -22,14 +21,10 @@ class Engine:
         for event in events:
             action = self.event_handler.dispatch(event)
 
-            match action:
-                case None:
-                    continue
-                case MovementAction(): # Check if the tile is “walkable”, and only then do we move the player.
-                    if self.game_map.tiles["walkable"][self.player.x + action.dx, self.player.y + action.dy]:
-                        self.player.move(dx=action.dx, dy=action.dy)
-                case EscapeAction():
-                    raise SystemExit()
+            if action is None:
+                continue
+
+            action.perform(self, self.player)
             
     def render(self, console: Console, context: Context) -> None:
         self.game_map.render(console) # Call the GameMap’s render method to draw it to the screen.

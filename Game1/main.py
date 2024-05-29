@@ -29,7 +29,7 @@ def main() -> None:
     npc = Entity(int(screen_w / 2 - 5), int(screen_h / 2), "@", color.orange_gold)
     entities = {player, npc}
 
-    game_map = GameMap(map_w, map_h)
+    game_map = GameMap(map_w, map_h)    
 
     engine = Engine(entities=entities, event_handler=event_handler, game_map=game_map, player=player)
 
