@@ -28,6 +28,6 @@ def new_tile(*, walkable: int, transparent: int, dark: Tuple[int, Tuple[int, int
     """Helper function for defining individual tile types """
     return np.array((walkable, transparent, dark), dtype=tile_dt)
 
-floor = new_tile(walkable=True, transparent=True, dark=(ord(" "), color.use('white'), color.use('slate_blue')))
-wall = new_tile(walkable=False, transparent=False, dark=(ord(" "), color.use('white'), color.use('navy_blue')))
+floor = new_tile(walkable=True, transparent=True, dark=(ord(" "), color.white, color.green_forest))
+wall = new_tile(walkable=False, transparent=False, dark=(ord(" "), color.white, color.green_dark))
 

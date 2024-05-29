@@ -25,8 +25,8 @@ def main() -> None:
     event_handler = EventHandler()
 
     # Creating the entities
-    player = Entity(int(screen_w / 2), int(screen_h / 2), "@", color.use('green'))
-    npc = Entity(int(screen_w / 2 - 5), int(screen_h / 2), "@", color.use('yellow'))
+    player = Entity(int(screen_w / 2), int(screen_h / 2), "@", color.green_lime)
+    npc = Entity(int(screen_w / 2 - 5), int(screen_h / 2), "@", color.orange_gold)
     entities = {player, npc}
 
     game_map = GameMap(map_w, map_h)
